@@ -77,7 +77,7 @@ const ProductList: React.FC<ProductListProps> = ({
               justifyContent: "center",
             }}
           >
-            <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+            <Typography variant="subtitle2" color="purple" gutterBottom>
               {product.category}
             </Typography>
             <Typography variant="h6" noWrap>

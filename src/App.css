@@ -8,13 +8,13 @@
 }
 
 .product-list-container {
-  width: 50%;
+  width: 40%; /* Reduced width for product list */
   overflow-y: auto; /* Add scrollbar to product list */
   height: 100vh; /* Full height */
 }
 
 .product-detail-container {
-  width: 50%;
+  width: 60%; /* Increased width for product detail */
   display: flex;
   justify-content: center; /* Centers content horizontally in the flex container */
   align-items: center; /* Centers content vertically in the flex container */
@@ -35,18 +35,17 @@
 .no-selection-header {
   color: purple;
   font-size: 0.8rem; /* Smaller font size */
-  margin-bottom: 0.1rem; /* Space between header and important */
+  margin-bottom: 0.1rem; /* Reduced space between header and important */
 }
 
 .no-selection-important {
   color: black;
   font-weight: bold;
   font-size: 1.8rem; /* Larger font size for emphasis */
-  margin-bottom: 0.5rem; /* Space between important and text */
+  margin-bottom: 0.5rem; /* Increased space between important and text */
 }
 
 .no-selection-text {
   color: grey;
-  /* The font size remains the default size, so no need to set it unless you want a specific size */
-  margin-bottom: 1rem; /* Space after the text if needed */
+  margin-bottom: 0.75rem; /* Reduced space after the text */
 }
