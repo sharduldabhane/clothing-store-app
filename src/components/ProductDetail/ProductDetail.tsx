@@ -1,6 +1,6 @@
 // ProductDetail.tsx
 import React from "react";
-import { Item } from "../types";
+import { Item } from "../../types";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";

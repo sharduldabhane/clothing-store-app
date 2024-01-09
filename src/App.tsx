@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from "react";
 import { fetchProducts } from "./api";
 import { Item } from "./types";
-import ProductList from "./components/ProductList";
-import ProductDetail from "./components/ProductDetail";
-import Loading from "./components/Loading";
-import Error from "./components/Error";
+import ProductList from "./components/ProductList/ProductList";
+import ProductDetail from "./components/ProductDetail/ProductDetail";
+import Loading from "./components/Loading/Loading";
+import Error from "./components/Error/Error";
 import "./App.css"; // Ensure you import App.css here
 
 const ITEMS_PER_PAGE = 5; // Adjust the number of items per page as needed
