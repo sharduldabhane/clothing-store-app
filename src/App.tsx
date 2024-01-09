@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { fetchProducts } from "./api";
 import { Item } from "./types";
+import ProductList from "./components/ProductList";
+import Loading from "./components/Loading";
+import Error from "./components/Error";
 
 const App: React.FC = () => {
   const [products, setProducts] = useState<Item[]>([]);
@@ -23,31 +26,13 @@ const App: React.FC = () => {
     loadProducts();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <Loading />;
+  if (error) return <Error message={error} />;
 
   return (
     <div>
       <h1>Product List</h1>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            <img
-              src={product.image}
-              alt={product.title}
-              width="50"
-              height="50"
-            />
-            <p>
-              {product.title} - ${product.price}
-            </p>
-            <p>{product.description}</p>
-            <p>
-              Rating: {product.rating.rate} ({product.rating.count} reviews)
-            </p>
-          </li>
-        ))}
-      </ul>
+      <ProductList products={products} />
     </div>
   );
 };
