@@ -9,6 +9,7 @@ import {
   Typography,
   Pagination,
 } from "@mui/material";
+import StarRateIcon from "@mui/icons-material/StarRate"; // Importing StarRate icon
 
 interface ProductListProps {
   products: Item[];
@@ -32,22 +33,37 @@ const ProductList: React.FC<ProductListProps> = ({
   return (
     <Box
       sx={{
-        maxHeight: `calc(100vh - /* header height */ - /* footer height */)`,
+        maxHeight: "calc(100vh - /* header height */ - /* footer height */)",
         overflowY: "scroll",
       }}
     >
       {products.map((product) => (
         <Card
-          sx={{ display: "flex", mb: 2, alignItems: "center" }}
+          sx={{ display: "flex", mb: 2 }}
           key={product.id}
           onClick={() => onProductClick(product)}
         >
-          <CardMedia
-            component="img"
-            sx={{ width: 88, height: 88, objectFit: "cover" }} // Made images smaller
-            image={product.image}
-            alt={product.title}
-          />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              p: 1,
+            }}
+          >
+            <CardMedia
+              component="img"
+              sx={{ width: 88, height: 88, objectFit: "cover" }}
+              image={product.image}
+              alt={product.title}
+            />
+            <Box sx={{ display: "flex", alignItems: "center", pt: 0.5 }}>
+              <StarRateIcon sx={{ color: "#ffd700", fontSize: "small" }} />
+              <Typography variant="body2" sx={{ fontSize: "0.75rem" }}>
+                {product.rating.rate} ({product.rating.count})
+              </Typography>
+            </Box>
+          </Box>
           <CardContent
             sx={{
               flex: "1",
@@ -56,6 +72,9 @@ const ProductList: React.FC<ProductListProps> = ({
               justifyContent: "center",
             }}
           >
+            <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+              {product.category}
+            </Typography>
             <Typography variant="h6" noWrap>
               {product.title}
             </Typography>
@@ -63,9 +82,6 @@ const ProductList: React.FC<ProductListProps> = ({
               {product.description}
             </Typography>
             <Typography variant="body1">${product.price}</Typography>
-            <Typography variant="body2">
-              Rating: {product.rating.rate} ({product.rating.count} reviews)
-            </Typography>
           </CardContent>
         </Card>
       ))}
