@@ -1,13 +1,14 @@
-// App.tsx
 import React, { useState, useEffect } from "react";
 import { fetchProducts } from "./api";
 import { Item } from "./types";
 import ProductList from "./components/ProductList";
+import ProductDetail from "./components/ProductDetail";
 import Loading from "./components/Loading";
 import Error from "./components/Error";
 
 const App: React.FC = () => {
   const [products, setProducts] = useState<Item[]>([]);
+  const [selectedProduct, setSelectedProduct] = useState<Item | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,13 +27,25 @@ const App: React.FC = () => {
     loadProducts();
   }, []);
 
+  const handleProductClick = (product: Item) => {
+    setSelectedProduct(product);
+  };
+
   if (loading) return <Loading />;
   if (error) return <Error message={error} />;
 
   return (
-    <div>
-      <h1>Product List</h1>
-      <ProductList products={products} />
+    <div className="app-container">
+      <div className="product-list-container">
+        <ProductList products={products} onProductClick={handleProductClick} />
+      </div>
+      <div className="product-detail-container">
+        {selectedProduct ? (
+          <ProductDetail product={selectedProduct} />
+        ) : (
+          <div>Select an item to display</div>
+        )}
+      </div>
     </div>
   );
 };
