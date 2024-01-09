@@ -5,6 +5,7 @@ import ProductList from "./components/ProductList";
 import ProductDetail from "./components/ProductDetail";
 import Loading from "./components/Loading";
 import Error from "./components/Error";
+import "./App.css"; // Ensure you import App.css here
 
 const ITEMS_PER_PAGE = 5; // Adjust the number of items per page as needed
 
@@ -46,11 +47,8 @@ const App: React.FC = () => {
   if (error) return <Error message={error} />;
 
   return (
-    <div
-      className="app-container"
-      style={{ display: "flex", flexDirection: "row", alignItems: "start" }}
-    >
-      <div className="product-list-container" style={{ width: "50%" }}>
+    <div className="app-container">
+      <div className="product-list-container">
         <ProductList
           products={currentItems}
           onProductClick={handleProductClick}
@@ -60,14 +58,14 @@ const App: React.FC = () => {
           currentPage={currentPage}
         />
       </div>
-      <div className="product-detail-container" style={{ width: "50%" }}>
+      <div className="product-detail-container">
         {selectedProduct ? (
           <ProductDetail product={selectedProduct} />
         ) : (
-          <div>
-            <p>Nothing to display...</p>
-            <p>Select an Item to display</p>
-            <p>
+          <div className="no-selection-container">
+            <p className="no-selection-header">Nothing to display...</p>
+            <p className="no-selection-important">Select an Item to display</p>
+            <p className="no-selection-text">
               Select an item from the master view to display details in the
               detail view.
             </p>

@@ -1,38 +1,38 @@
-.App {
+/* App.css */
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+.product-list-container {
+  width: 50%;
+  /* Add any additional styles for the product list container */
+}
+
+.product-detail-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Style for when no product is selected */
+.no-selection-container {
+  color: grey; /* Default text color */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.no-selection-container p {
+  margin-bottom: 1rem; /* Space between paragraphs */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.no-selection-important {
+  color: black;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.no-selection-header {
+  color: purple;
 }
