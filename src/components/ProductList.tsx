@@ -34,7 +34,7 @@ const ProductList: React.FC<ProductListProps> = ({
     <Box
       sx={{
         maxHeight: "calc(100vh - /* header height */ - /* footer height */)",
-        overflowY: "scroll",
+        overflowY: "auto",
       }}
     >
       {products.map((product) => (
@@ -53,7 +53,12 @@ const ProductList: React.FC<ProductListProps> = ({
           >
             <CardMedia
               component="img"
-              sx={{ width: 88, height: 88, objectFit: "cover" }}
+              sx={{
+                width: 88,
+                height: 88,
+                objectFit: "contain",
+                borderRadius: 1,
+              }} // Changed objectFit to "contain" and added borderRadius
               image={product.image}
               alt={product.title}
             />
