@@ -39,7 +39,13 @@ const ProductList: React.FC<ProductListProps> = ({
     >
       {products.map((product) => (
         <Card
-          sx={{ display: "flex", mb: 2 }}
+          sx={{
+            display: "flex",
+            mb: 2,
+            ":hover": {
+              boxShadow: 3, // Adds a shadow effect on hover
+            },
+          }}
           key={product.id}
           onClick={() => onProductClick(product)}
         >
@@ -49,6 +55,9 @@ const ProductList: React.FC<ProductListProps> = ({
               flexDirection: "column",
               alignItems: "center",
               p: 1,
+              ":hover img": {
+                cursor: "pointer", // Changes cursor to pointer on hover over the image
+              },
             }}
           >
             <CardMedia
@@ -58,7 +67,10 @@ const ProductList: React.FC<ProductListProps> = ({
                 height: 88,
                 objectFit: "contain",
                 borderRadius: 1,
-              }} // Changed objectFit to "contain" and added borderRadius
+                ":hover": {
+                  transform: "scale(1.05)", // Scales the image on hover
+                },
+              }}
               image={product.image}
               alt={product.title}
             />

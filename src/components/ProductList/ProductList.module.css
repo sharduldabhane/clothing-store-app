@@ -1,60 +1,72 @@
+/* ProductList.module.css */
 .productListContainer {
   max-height: 80vh; /* Adjust the height as necessary */
   overflow-y: auto; /* Enables scrolling */
-  padding: 0 16px; /* Add padding if needed */
-}
-
-.product-list {
-  display: flex;
-  flex-direction: column;
+  padding: 16px; /* Updated padding for inner spacing */
 }
 
 .product-item {
   display: flex;
-  align-items: flex-start; /* Aligns items to the start of the cross axis */
-  padding: 8px; /* Adjust as needed */
-  margin-bottom: 16px;
-  background: #ffffff; /* Assuming a white card background */
+  align-items: center; /* Align items to the center of the cross axis */
+  margin-bottom: 16px; /* Space between items */
+  background: #ffffff; /* White card background */
   border: 1px solid #eaecf0; /* Border for the card */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   border-radius: 8px; /* Rounded corners for the card */
+  transition: transform 0.2s; /* Smooth transition for hover effects */
+}
+
+.product-item:hover {
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  cursor: pointer; /* Change cursor to indicate clickable */
 }
 
 .product-image-container {
-  flex-shrink: 0; /* Prevents the image container from shrinking */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center the image and rating vertically */
-  align-items: center; /* Center the image and rating horizontally */
-  padding-right: 16px; /* Space between image and details */
+  margin-right: 16px; /* Space between image and details */
 }
 
 .product-image {
-  max-width: 100%; /* Ensures the image does not exceed the width of its container */
-  max-height: 100px; /* Sets a maximum height for the image */
-  object-fit: contain; /* Ensures the image aspect ratio is maintained */
-  border-radius: 4px; /* Slightly rounded corners for the image */
+  width: 80px; /* Adjust width as necessary */
+  height: 80px; /* Adjust height as necessary */
+  object-fit: cover; /* Cover the frame without distorting aspect ratio */
+  border-radius: 4px; /* Rounded corners for the image */
+  transition: transform 0.2s; /* Smooth transition for hover effects */
+}
+
+.product-image:hover {
+  transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* Distribute space around items */
+}
+
+.product-category {
+  color: purple; /* Set category color to purple */
+  font-size: 0.9rem; /* Smaller font size for category */
+}
+
+.product-title {
+  font-size: 1.1rem; /* Larger font size for title */
+  font-weight: bold; /* Bold font weight for title */
+}
+
+.product-description {
+  color: #666; /* Grey color for description */
+  font-size: 0.8rem; /* Smaller font size for description */
+}
+
+.product-price {
+  color: #333; /* Darker color for price */
+  font-weight: bold; /* Bold font weight for price */
 }
 
 .product-rating {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 8px; /* Space between image and rating */
-}
-
-.product-info {
-  flex: 1; /* Take the remaining space */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center the content vertically */
-}
-
-.product-category,
-.product-title,
-.product-description,
-.product-price {
-  margin-bottom: 4px; /* Space between info elements */
+  gap: 4px; /* Space between star icon and rating text */
 }
 
 /* Pagination styles */
@@ -64,15 +76,16 @@
   padding: 10px;
 }
 
-.pagination button {
+.pageNumber {
   margin: 0 5px;
   cursor: pointer; /* Indicates the button is clickable */
-  /* Additional styles for pagination buttons */
+  background-color: transparent; /* No background for a clean look */
+  border: none; /* No border for a clean look */
+  padding: 5px 10px; /* Padding for clickable area */
 }
 
-/* Style for the active page number */
+.pageNumber:hover,
 .pageNumber.active {
-  font-weight: bold;
-  color: #000; /* Change as needed to match your active page color */
-  /* Other styles to highlight the active page */
+  color: #0056b3; /* Highlight color for hover and active page */
+  text-decoration: underline; /* Underline for a visual cue */
 }
