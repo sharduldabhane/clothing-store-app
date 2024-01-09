@@ -2,7 +2,7 @@
 
 ## Developer's Note
 
-This repository contains the Online Store Challenge completed by I. Shardul Dabhane. It is a React-based application demonstrating a master-detail view interface for an online store. Users can browse a list of products and view detailed information upon selection.
+This repository contains the Online Store Challenge completed by Shardul Dabhane. It is a React-based application demonstrating a master-detail view interface for an online store. Users can browse a list of products and view detailed information upon selection.
 
 ## Project Overview
 
