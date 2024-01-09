@@ -1,6 +1,7 @@
+// ProductDetail.tsx
 import React from "react";
 import { Item } from "../types";
-import styles from "./ProductDetail.module.css"; // Ensure you have a corresponding CSS module
+import { Box, Typography } from "@mui/material";
 
 interface ProductDetailProps {
   product: Item | null;
@@ -8,29 +9,30 @@ interface ProductDetailProps {
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   if (!product) {
-    return (
-      <div className={styles.productDetailPlaceholder}>
-        Select an item to display
-      </div>
-    );
+    return <Typography>Select an item to display</Typography>;
   }
 
   return (
-    <div className={styles.productDetailContainer}>
-      <h2 className={styles.productTitle}>{product.title}</h2>
-      <img
+    <Box>
+      <Typography variant="h4">{product.title}</Typography>
+      <Box
+        component="img"
+        sx={{
+          my: 2,
+          maxHeight: { xs: "200px", md: "400px" }, // Responsive image sizes
+          objectFit: "contain",
+        }}
         src={product.image}
         alt={product.title}
-        className={styles.productImage}
       />
-      <p className={styles.productPrice}>
+      <Typography variant="body1">
         {product.title} - ${product.price}
-      </p>
-      <p className={styles.productDescription}>{product.description}</p>
-      <p className={styles.productRating}>
+      </Typography>
+      <Typography variant="body2">{product.description}</Typography>
+      <Typography variant="body2">
         Rating: {product.rating.rate} ({product.rating.count} reviews)
-      </p>
-    </div>
+      </Typography>
+    </Box>
   );
 };
 
