@@ -35,11 +35,14 @@ const App: React.FC = () => {
   if (error) return <Error message={error} />;
 
   return (
-    <div className="app-container">
-      <div className="product-list-container">
+    <div
+      className="app-container"
+      style={{ display: "flex", flexDirection: "row", alignItems: "start" }}
+    >
+      <div className="product-list-container" style={{ width: "50%" }}>
         <ProductList products={products} onProductClick={handleProductClick} />
       </div>
-      <div className="product-detail-container">
+      <div className="product-detail-container" style={{ width: "50%" }}>
         {selectedProduct ? (
           <ProductDetail product={selectedProduct} />
         ) : (
