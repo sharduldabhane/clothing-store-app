@@ -1,10 +1,9 @@
 .productListContainer {
   max-height: 80vh; /* Adjust the height as necessary */
   overflow-y: auto; /* Enables scrolling */
-  /* Add any other general styles you might need, like padding or margin */
+  padding: 0 16px; /* Add padding if needed */
 }
 
-/* Keep existing styles and add any new ones as needed */
 .product-list {
   display: flex;
   flex-direction: column;
@@ -12,41 +11,53 @@
 
 .product-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Aligns items to the start of the cross axis */
+  padding: 8px; /* Adjust as needed */
   margin-bottom: 16px;
+  background: #ffffff; /* Assuming a white card background */
+  border: 1px solid #eaecf0; /* Border for the card */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 8px; /* Rounded corners for the card */
 }
 
 .product-image-container {
-  margin-right: 16px;
-  text-align: center; /* Center the image and rating if the image container is wider */
+  flex-shrink: 0; /* Prevents the image container from shrinking */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the image and rating vertically */
+  align-items: center; /* Center the image and rating horizontally */
+  padding-right: 16px; /* Space between image and details */
 }
 
 .product-image {
-  width: 128px; /* Adjust width as necessary */
-  height: auto; /* Adjust height as necessary, or set a fixed height */
-  border-radius: 8px;
+  max-width: 100%; /* Ensures the image does not exceed the width of its container */
+  max-height: 100px; /* Sets a maximum height for the image */
+  object-fit: contain; /* Ensures the image aspect ratio is maintained */
+  border-radius: 4px; /* Slightly rounded corners for the image */
 }
 
 .product-rating {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 8px; /* Spacing between image and rating */
+  margin-top: 8px; /* Space between image and rating */
 }
 
 .product-info {
+  flex: 1; /* Take the remaining space */
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Center the content vertically */
 }
 
 .product-category,
 .product-title,
 .product-description,
 .product-price {
-  margin-bottom: 4px; /* Spacing between info elements */
+  margin-bottom: 4px; /* Space between info elements */
 }
 
-/* Add styles for pagination if needed */
+/* Pagination styles */
 .pagination {
   display: flex;
   justify-content: center;
@@ -55,11 +66,13 @@
 
 .pagination button {
   margin: 0 5px;
+  cursor: pointer; /* Indicates the button is clickable */
   /* Additional styles for pagination buttons */
 }
 
 /* Style for the active page number */
 .pageNumber.active {
   font-weight: bold;
+  color: #000; /* Change as needed to match your active page color */
   /* Other styles to highlight the active page */
 }

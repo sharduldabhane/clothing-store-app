@@ -1,0 +1,65 @@
+.productListContainer {
+  max-height: 80vh; /* Adjust the height as necessary */
+  overflow-y: auto; /* Enables scrolling */
+  padding: 16px; /* Add padding for inner spacing */
+}
+
+.productCard {
+  display: flex;
+  align-items: flex-start; /* Align items to the start for a consistent look */
+  background: #ffffff; /* Card background color */
+  border: 1px solid #eaeaea; /* Card border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Card shadow for depth */
+  border-radius: 8px; /* Rounded corners for the card */
+  margin-bottom: 16px; /* Space between cards */
+  overflow: hidden; /* Prevents content from spilling out */
+  padding: 16px; /* Padding inside the card */
+}
+
+.productImage {
+  width: 100px; /* Set a fixed width for the images */
+  height: 100px; /* Set a fixed height for the images */
+  object-fit: cover; /* Cover the frame without distorting aspect ratio */
+  border-radius: 8px; /* Optionally round the corners of the image */
+  margin-right: 16px; /* Space between the image and the details */
+}
+
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content vertically for a better look */
+  flex: 1; /* Ensure details take up the remaining space */
+}
+
+.productCategory,
+.productTitle,
+.productDescription,
+.productPrice,
+.productRating {
+  margin-bottom: 8px; /* Space between details */
+}
+
+.productRating {
+  display: flex;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.pageNumber {
+  margin: 0 5px;
+  cursor: pointer; /* Indicate the buttons are clickable */
+  background-color: transparent; /* No background for a clean look */
+  border: none; /* No border for a clean look */
+  padding: 5px 10px; /* Padding for clickable area */
+}
+
+.pageNumber:hover,
+.pageNumber.active {
+  color: #0056b3; /* Highlight color for hover and active page */
+  text-decoration: underline; /* Underline for a visual cue */
+}

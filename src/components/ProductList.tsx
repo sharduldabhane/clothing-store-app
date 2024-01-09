@@ -1,7 +1,7 @@
 // ProductList.tsx
 import React from "react";
 import { Item } from "../types";
-import styles from "./ProductList.module.css"; // Assuming your styles are defined here
+import styles from "./ProductList.module.css"; // Ensure this points to your CSS module file
 
 interface ProductListProps {
   products: Item[];
@@ -18,38 +18,37 @@ const ProductList: React.FC<ProductListProps> = ({
   paginate,
   totalItems,
   itemsPerPage,
-  currentPage, // Ensuring currentPage is passed down from props
+  currentPage,
 }) => {
   const pageCount = Math.ceil(totalItems / itemsPerPage);
 
   return (
     <div className={styles.productListContainer}>
       {" "}
-      {/* Updated class name for scrolling */}
+      {/* Class name for scrolling container */}
       {products.map((product) => (
         <div
           key={product.id}
-          className={styles.productItem}
+          className={styles.productCard} // Updated class name for product cards
           onClick={() => onProductClick(product)}
         >
-          <div className={styles.productImageContainer}>
-            <img
-              src={product.image}
-              alt={product.title}
-              className={styles.productImage}
-            />
-            <div className={styles.productRating}>
-              <span>{product.rating.rate}</span>
-              <span>({product.rating.count} reviews)</span>
-            </div>
-          </div>
-          <div className={styles.productInfo}>
+          <img
+            src={product.image}
+            alt={product.title}
+            className={styles.productImage} // Class that ensures proper image sizing
+          />
+          <div className={styles.productDetails}>
+            {" "}
+            {/* Updated class name for product details */}
             <div className={styles.productCategory}>{product.category}</div>
             <div className={styles.productTitle}>{product.title}</div>
             <div className={styles.productDescription}>
               {product.description}
             </div>
             <div className={styles.productPrice}>${product.price}</div>
+            <div className={styles.productRating}>
+              Rating: {product.rating.rate} ({product.rating.count} reviews)
+            </div>
           </div>
         </div>
       ))}
@@ -60,7 +59,7 @@ const ProductList: React.FC<ProductListProps> = ({
             onClick={() => paginate(i + 1)}
             className={`${styles.pageNumber} ${
               currentPage === i + 1 ? styles.active : ""
-            }`}
+            }`} // Class for page numbers, with active state
           >
             {i + 1}
           </button>
