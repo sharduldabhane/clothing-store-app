@@ -9,7 +9,8 @@
 
 .product-list-container {
   width: 50%;
-  /* Additional styles for the product list container */
+  overflow-y: auto; /* Add scrollbar to product list */
+  height: 100vh; /* Full height */
 }
 
 .product-detail-container {

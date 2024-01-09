@@ -1,3 +1,4 @@
+// App.tsx
 import React, { useState, useEffect } from "react";
 import { fetchProducts } from "./api";
 import { Item } from "./types";
