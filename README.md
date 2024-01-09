@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# Online Store Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Developer's Note
 
-## Available Scripts
+This repository contains the Online Store Challenge completed by I. Shardul Dabhane. It is a React-based application demonstrating a master-detail view interface for an online store. Users can browse a list of products and view detailed information upon selection.
 
-In the project directory, you can run:
+## Project Overview
 
-### `npm start`
+The application presents products in a master view, allowing users to click and reveal detailed information in the detail view. Details include title, description, price, category, image, and rating.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Requirements
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Design**: Prepared with Figma to ensure a pre-implementation visual layout.
+- **Master View**: A list view showing titles and descriptions of items.
+- **Detail View**:
+  - Starts off empty and displays the selected product's details.
+  - Details include title, description, price, category, image, and rating.
+- **Data**:
+  - Product data fetched with: `GET https://fakestoreapi.com/products/`
+  - Individual product details fetched with: `GET https://fakestoreapi.com/products/{id}`
+- **Styling**:
+  - Styled with the MUI library for a responsive layout suitable for all devices.
+- **React Components**: Organized into reusable components with state and props.
 
-### `npm test`
+### Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Install the required libraries:
+   ```sh
+   npm install @mui/material @emotion/react @emotion/styled axios @mui/icons-material
+   ```
+4. Start the application using this command:
+   ```sh
+   npm start
+   ```
 
-### `npm run build`
+### Future Improvements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+With additional time, the project could be enhanced by:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **User Authentication**: Implementing login and registration functionality for a personalized shopping experience.
+2. **Payment Gateway**: Integrating a secure payment portal to facilitate online transactions.
+3. **Review System**: Allowing users to write and submit reviews for products.
+4. **Product Recommendations**: Introducing a recommendation engine to suggest products based on user preferences.
+5. **Order Tracking**: Adding functionality for users to track their orders post-purchase.
+   Multi-language Support: Expanding accessibility with multiple language options.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Acknowledgments
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Special thanks to AJMERA INFOTECH INC. for the challenge guidelines.
+- Appreciation to Fake Store API for providing the endpoints for product data.
