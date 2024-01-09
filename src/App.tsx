@@ -6,8 +6,11 @@ import ProductDetail from "./components/ProductDetail";
 import Loading from "./components/Loading";
 import Error from "./components/Error";
 
+const ITEMS_PER_PAGE = 5; // Adjust the number of items per page as needed
+
 const App: React.FC = () => {
   const [products, setProducts] = useState<Item[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [selectedProduct, setSelectedProduct] = useState<Item | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -27,8 +30,16 @@ const App: React.FC = () => {
     loadProducts();
   }, []);
 
+  const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
+  const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
+  const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
+
   const handleProductClick = (product: Item) => {
     setSelectedProduct(product);
+  };
+
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
   };
 
   if (loading) return <Loading />;
@@ -40,13 +51,27 @@ const App: React.FC = () => {
       style={{ display: "flex", flexDirection: "row", alignItems: "start" }}
     >
       <div className="product-list-container" style={{ width: "50%" }}>
-        <ProductList products={products} onProductClick={handleProductClick} />
+        <ProductList
+          products={currentItems}
+          onProductClick={handleProductClick}
+          paginate={paginate}
+          totalItems={products.length}
+          itemsPerPage={ITEMS_PER_PAGE}
+          currentPage={currentPage}
+        />
       </div>
       <div className="product-detail-container" style={{ width: "50%" }}>
         {selectedProduct ? (
           <ProductDetail product={selectedProduct} />
         ) : (
-          <div>Select an item to display</div>
+          <div>
+            <p>Nothing to display...</p>
+            <p>Select an Item to display</p>
+            <p>
+              Select an item from the master view to display details in the
+              detail view.
+            </p>
+          </div>
         )}
       </div>
     </div>

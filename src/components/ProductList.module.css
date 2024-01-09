@@ -1,0 +1,65 @@
+.productListContainer {
+  max-height: 80vh; /* Adjust the height as necessary */
+  overflow-y: auto; /* Enables scrolling */
+  /* Add any other general styles you might need, like padding or margin */
+}
+
+/* Keep existing styles and add any new ones as needed */
+.product-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.product-image-container {
+  margin-right: 16px;
+  text-align: center; /* Center the image and rating if the image container is wider */
+}
+
+.product-image {
+  width: 128px; /* Adjust width as necessary */
+  height: auto; /* Adjust height as necessary, or set a fixed height */
+  border-radius: 8px;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px; /* Spacing between image and rating */
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-category,
+.product-title,
+.product-description,
+.product-price {
+  margin-bottom: 4px; /* Spacing between info elements */
+}
+
+/* Add styles for pagination if needed */
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  /* Additional styles for pagination buttons */
+}
+
+/* Style for the active page number */
+.pageNumber.active {
+  font-weight: bold;
+  /* Other styles to highlight the active page */
+}
