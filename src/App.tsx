@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// App.tsx
+import React, { useState, useEffect } from "react";
+import { fetchProducts } from "./api";
+import { Item } from "./types";
 
-function App() {
+const App: React.FC = () => {
+  const [products, setProducts] = useState<Item[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const fetchedProducts = await fetchProducts();
+        setProducts(fetchedProducts);
+      } catch (e) {
+        setError("Failed to fetch products");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProducts();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Product List</h1>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            <img
+              src={product.image}
+              alt={product.title}
+              width="50"
+              height="50"
+            />
+            <p>
+              {product.title} - ${product.price}
+            </p>
+            <p>{product.description}</p>
+            <p>
+              Rating: {product.rating.rate} ({product.rating.count} reviews)
+            </p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
 export default App;
