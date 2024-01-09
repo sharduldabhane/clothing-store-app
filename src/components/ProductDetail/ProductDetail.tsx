@@ -1,15 +1,21 @@
-// ProductDetail.tsx
+// Importing React for JSX usage
 import React from "react";
+// Importing the Item type from the types folder
 import { Item } from "../../types";
+// Importing Material-UI components for UI design
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+// Importing icons from Material-UI for star ratings
 import StarRateIcon from "@mui/icons-material/StarRate";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 
+// Interface for the props passed to ProductDetail component
 interface ProductDetailProps {
-  product: Item | null;
+  product: Item | null; // The product item to display or null if none
 }
 
+// Functional component 'ProductDetail' for displaying product details
 const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
+  // Display a message if no product is selected
   if (!product) {
     return (
       <Box sx={{ textAlign: "center" }}>
@@ -19,10 +25,11 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
     );
   }
 
-  // Generate stars for the rating
+  // Generate star icons for the product rating
   const ratingStars = [];
   for (let i = 0; i < 5; i++) {
     ratingStars.push(
+      // Filled star for each point in the rating, outline star otherwise
       i < Math.round(product.rating.rate) ? (
         <StarRateIcon key={i} sx={{ color: "#ffd700" }} />
       ) : (
@@ -31,6 +38,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
     );
   }
 
+  // Render the product details in a card format
   return (
     <Card sx={{ maxWidth: "90%", margin: "auto", overflow: "visible" }}>
       <CardMedia

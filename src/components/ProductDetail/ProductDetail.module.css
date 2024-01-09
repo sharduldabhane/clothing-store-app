@@ -1,67 +1,76 @@
+/* Styles for the container that holds the product list */
 .productListContainer {
   max-height: calc(
     100vh - 50px - 30px
-  ); /* Adjust the header and footer height as necessary */
-  overflow-y: scroll;
-  padding: 0;
-  margin: 0;
+  ); /* Maximum height calculated based on the viewport height minus specific offsets */
+  overflow-y: scroll; /* Enables vertical scrolling if content overflows */
+  padding: 0; /* No padding */
+  margin: 0; /* No margin */
 }
 
+/* Styles for individual product cards */
 .productCard {
-  display: flex;
-  align-items: center;
-  background: #ffffff;
-  border: 1px solid #eaeaea;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  margin: 8px;
-  padding: 16px;
-  transition: transform 0.1s ease-in-out;
+  display: flex; /* Uses flexbox for layout */
+  align-items: center; /* Aligns items vertically in the center */
+  background: #ffffff; /* White background */
+  border: 1px solid #eaeaea; /* Light grey border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+  margin: 8px; /* Margin around each card */
+  padding: 16px; /* Padding inside each card */
+  transition: transform 0.1s ease-in-out; /* Smooth transition for hover effect */
 }
 
+/* Hover effect for product cards */
 .productCard:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Slightly raises the card on hover */
 }
 
+/* Styles for the product image */
 .productImage {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-right: 16px;
+  width: 80px; /* Fixed width */
+  height: 80px; /* Fixed height */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  border-radius: 8px; /* Rounded corners */
+  margin-right: 16px; /* Margin to separate image from text */
 }
 
+/* Styles for the product details section */
 .productDetails {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 1; /* Takes up remaining space */
+  display: flex; /* Uses flexbox for layout */
+  flex-direction: column; /* Stacks children vertically */
+  justify-content: center; /* Centers content vertically */
 }
 
+/* Common styles for product category, title, description, price, and rating */
 .productCategory,
 .productTitle,
 .productDescription,
 .productPrice,
 .productRating {
-  margin-bottom: 4px;
+  margin-bottom: 4px; /* Margin at the bottom of each element */
 }
 
+/* Styles for the pagination container */
 .pagination {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
+  display: flex; /* Uses flexbox for layout */
+  justify-content: center; /* Centers items horizontally */
+  padding: 10px; /* Padding around the container */
 }
 
+/* Styles for individual page numbers in pagination */
 .pageNumber {
-  margin: 0 5px;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  padding: 5px 10px;
+  margin: 0 5px; /* Margin on the sides for spacing */
+  cursor: pointer; /* Changes cursor to indicate clickable */
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  padding: 5px 10px; /* Padding for clickable area */
 }
 
+/* Styles for page number on hover and when active */
 .pageNumber:hover,
 .pageNumber.active {
-  color: #0056b3;
-  text-decoration: underline;
+  color: #0056b3; /* Changes text color */
+  text-decoration: underline; /* Underlines the text */
 }
